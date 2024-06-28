@@ -1,30 +1,32 @@
-import { useEffect, useState } from "react";
-import { getAllSpells } from "./api";
-import SpellCard from "./SpellCard";
-import "./styles.css";
-
-export default function App() {
-    const [spells, setSpells] = useState([]);
-
-    useEffect(() => {
-        const savedSpells = localStorage.getItem("spells");
-        if (savedSpells) setSpells(JSON.parse(savedSpells));
-        getAllSpells().then((spells) => {
-            setSpells(spells);
-            localStorage.setItem("spells", JSON.stringify(spells));
-        });
-    }, []);
-
-    // Import image into spellcard somewhere in here down the road.
-    // AWS Bucket probably / AZURE / GCP
+export default function SpellCard({ spell }) {
     return (
-        <div className="App">
-            {spells.length === 0 && <span className="loading">Loading...</span>}
-            <ul className="spell-list">
-                {spells.map((spell) => (
-                    <SpellCard key={spell.index} spell={spell} />
-                ))}
-            </ul>
-        </div>
+        <li className="spell-card">
+            <hgroup>
+                <h4>{spell.name}</h4>
+                <small>
+                    {spell.level > 0 && `Level ${spell.level} `}
+                    {spell.school.name}
+                    {spell.level === 0 && " cantrip"}
+                </small>
+            </hgroup>
+            <div className="stats">
+                <p>
+                    <strong>Casting Time</strong>
+                    {spell.casting_time}
+                </p>
+                <p>
+                    <strong>Range</strong>
+                    {spell.range}
+                </p>
+                <p>
+                    <strong>Components</strong>
+                    {spell.components.join(", ")}
+                </p>
+                <p>
+                    <strong>Duration</strong>
+                    {spell.duration}
+                </p>
+            </div>
+        </li>
     );
 }

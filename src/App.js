@@ -19,11 +19,11 @@ export default function App() {
       <div className="App">
         {spells.length === 0 && <span className="loading">Loading...</span>}
         {/* Slice and serve, or loop through 5 at a time */}
-          {/*<ul className="spell-list">*/}
-        {/*  {spells.map((spell) => (*/}
-        {/*      <SpellCard key={spell.index} spell={spell} />*/}
-        {/*  ))}*/}
-        {/*</ul>*/}
+          <ul className="spell-list">
+          {spells.map((spell) => (
+              <SpellCard key={spell.index} spell={spell} />
+          ))}
+        </ul>
       </div>
   );
 }
