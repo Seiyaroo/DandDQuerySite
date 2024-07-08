@@ -4,7 +4,7 @@ export default function MonsterCard({ monster }) {
             <hgroup>
                 <h4>{monster.name}</h4>
                 <small>
-                    {monster.challenge_rating > 0 && `Level ${monster.level} `}
+                    {monster.challenge_rating > 0}
                 </small>
             </hgroup>
             <div className = "stats">
@@ -15,6 +15,16 @@ export default function MonsterCard({ monster }) {
                 <p>
                     <strong>Alighment</strong>
                     {monster.alignments}
+                </p>
+
+                <p>
+                    <string>Description</string>
+                    {monster.desc}
+                </p>
+
+                <p>
+                    <string>Charisma</string>
+                    {monster.charisma}
                 </p>
             </div>
         </li>
