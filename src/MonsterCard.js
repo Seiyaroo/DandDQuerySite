@@ -8,25 +8,25 @@ export default function MonsterCard({ monster }) {
                 </small>
 
                 {/*Use once a repo of images can be utilized.*/}
+                {/*or find out why its not loading an image into the card*/}
+
                 {/*<small>*/}
                 {/*    {monster.image}*/}
                 {/*</small>*/}
-
-                <small>
-                    <strong>Size</strong>
-                    <br/>
-                    {monster.size}
-                </small>
-                <br/>
-                <small>
-                    <strong>Type</strong>
-                    <br/>
-                    {monster.type}
-                </small>
             </hgroup>
             <div className = "stats">
+                <small>
+                    <strong>Size: </strong>
+                    {monster.size}
+                </small>
+
+                <small>
+                    <strong>Type: </strong>
+                    {monster.type}
+                </small>
+
                 <p>
-                    <strong>Challenge Rating</strong>
+                    <strong>Challenge Rating:</strong>
                     {monster.challenge_rating}
                 </p>
                 <p>
