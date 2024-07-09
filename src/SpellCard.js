@@ -1,6 +1,6 @@
 export default function SpellCard({ spell }) {
     return (
-        <li className="spell-card">
+        <li className="card">
             <hgroup>
                 <h4>{spell.name}</h4>
                 <small>
