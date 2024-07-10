@@ -7,12 +7,9 @@ export default function MonsterCard({ monster }) {
                     {monster.challenge_rating > 0}
                 </small>
 
-                {/*Use once a repo of images can be utilized.*/}
-                {/*or find out why its not loading an image into the card*/}
-
-                {/*<small>*/}
-                {/*    {monster.image}*/}
-                {/*</small>*/}
+                <div>
+                {monster.image && <img src={'https://www.dnd5eapi.co' + monster.image} alt={`An image of an ${monster.name}`} />}
+                </div>
             </hgroup>
             <div className = "stats">
                 <small>
@@ -30,7 +27,7 @@ export default function MonsterCard({ monster }) {
                     {monster.challenge_rating}
                 </p>
                 <p>
-                    <strong>Alighment</strong>
+                    <strong>Alignment</strong>
                     {monster.alignments}
                 </p>
 

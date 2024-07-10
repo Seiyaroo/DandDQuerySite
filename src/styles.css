@@ -22,10 +22,22 @@ body {
 
 .card {
     background-color: #f7ce65;
+    border: 1px solid #ddd;
     border-radius: 1rem;
     list-style: none;
     max-width: 256px;
     padding: 4px;
+    overflow: hidden;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.card > hgroup > div {
+    margin-top: 8px;
 }
 
 .card hgroup {
