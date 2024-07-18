@@ -1,20 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { getAllMonsters, getAllSpells } from "./api";
+import { getAllMonsters, getAllSpells, Spell, Monster } from "./api";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import SearchComponent from "./components/SearchComponent";
 import SpellCard from "./components/SpellCard";
 import MonsterCard from "./components/MonsterCard";
 import "./styles.css";
-
-interface Spell {
-    index: string;
-    name: string;
-}
-
-interface Monster {
-    index: string;
-    name: string;
-}
 
 const App: React.FC = () => {
     const [spells, setSpells] = useState<Spell[]>([]);

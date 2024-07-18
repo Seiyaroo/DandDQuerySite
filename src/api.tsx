@@ -1,17 +1,12 @@
 const BASE_URL = "https://www.dnd5eapi.co";
 
-interface ApiResponse<T> {
-    count: number;
-    results: T[];
-}
-
-interface SpellIndex {
+interface APIReference {
     index: string;
     name: string;
     url: string;
 }
 
-interface Spell {
+export interface Spell {
     index: string;
     name: string;
     url: string;
@@ -25,13 +20,8 @@ interface Spell {
     duration: string;
 }
 
-interface MonsterIndex {
-    index: string;
-    name: string;
+export interface Monster {
     url: string;
-}
-
-interface Monster {
     index: string;
     name: string;
     challenge_rating: number;
@@ -57,11 +47,11 @@ async function fetchJson<T>(url: string): Promise<T> {
 }
 
 export async function getAllSpells(): Promise<Spell[]> {
-    const spellIndexes = await fetchJson<{ results: SpellIndex[] }>(`${BASE_URL}/api/spells`);
+    const spellIndexes = await fetchJson<{ results: Spell[] }>(`${BASE_URL}/api/spells`);
     return Promise.all(spellIndexes.results.map(index => fetchJson<Spell>(`${BASE_URL}${index.url}`)));
 }
 
 export async function getAllMonsters(): Promise<Monster[]> {
-    const monsterIndexes = await fetchJson<{ results: MonsterIndex[] }>(`${BASE_URL}/api/monsters`);
+    const monsterIndexes = await fetchJson<{ results: Monster[] }>(`${BASE_URL}/api/monsters`);
     return Promise.all(monsterIndexes.results.map(index => fetchJson<Monster>(`${BASE_URL}${index.url}`)));
 }
