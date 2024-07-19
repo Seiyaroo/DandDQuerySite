@@ -1,4 +1,23 @@
-export default function SpellCard({ spell }) {
+import React from 'react';
+
+interface Spell {
+    index: string;
+    name: string;
+    level: number;
+    school: {
+        name: string;
+    };
+    casting_time: string;
+    range: string;
+    components: string[];
+    duration: string;
+}
+
+interface SpellCardProps {
+    spell: Spell;
+}
+
+const SpellCard: React.FC<SpellCardProps> = ({ spell }) => {
     return (
         <li className="card">
             <hgroup>
@@ -29,4 +48,6 @@ export default function SpellCard({ spell }) {
             </div>
         </li>
     );
-}
+};
+
+export default SpellCard;
